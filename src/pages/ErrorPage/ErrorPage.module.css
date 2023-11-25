@@ -1,0 +1,9 @@
+.error-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.error-page > div {
+  margin-bottom: 20px;
+}
