@@ -7,7 +7,7 @@ export function Layout() {
   return (
     <>
       <div className={styles["layout"]}>
-        <Header>
+        <Header className={styles["header"]}>
           <img src={logo} width={100}></img>
         </Header>
         <Outlet />

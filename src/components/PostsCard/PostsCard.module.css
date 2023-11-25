@@ -1,0 +1,29 @@
+.link {
+  text-decoration: none;
+}
+.info {
+  display: flex;
+  margin-bottom: 20px;
+}
+.text-posts {
+  margin: 0;
+  color: var(--text-color);
+  font-size: 15px;
+  font-weight: 600;
+  margin-right: 10px;
+}
+.userId {
+  color: var(--white-color);
+  font-size: 15px;
+  font-weight: 600;
+}
+.title {
+  color: white;
+}
+.description {
+  color: white;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: normal;
+}

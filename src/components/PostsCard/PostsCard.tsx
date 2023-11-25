@@ -1,21 +1,24 @@
 import { Link } from "react-router-dom";
-// import styles from "./PostsCard.module.css";
+import styles from "./PostsCard.module.css";
 import { PostsCardProps } from "./PostsCard.props";
-
-// userId: number;
-// id: number;
-// title: string;
-// body: string;
 
 export function PostsCard(props: PostsCardProps) {
   return (
     <>
-      <Link to={`/posts/${props.id}`}>
+      <Link to={`/posts/${props.id}`} className={styles["link"]}>
         <div>
-          <div>{props.id}</div>
-          <div>{props.userId}</div>
-          <div>{props.title}</div>
-          <div>{props.description}</div>
+          <div className={styles["info"]}>
+            <p className={styles["text-posts"]}>Номер</p>&nbsp;
+            <div className={styles["userId"]}>{props.userId}</div>
+          </div>
+          <div className={styles["info"]}>
+            <p className={styles["text-posts"]}>Заголовок</p>&nbsp;
+            <div className={styles["title"]}>{props.title}</div>
+          </div>
+          <div className={styles["info"]}>
+            <p className={styles["text-posts"]}>Описание</p>&nbsp;
+            <div className={styles["description"]}>{props.description}</div>
+          </div>
         </div>
       </Link>
     </>
