@@ -5,7 +5,11 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Layout } from "./layout/Layout/Layout";
 import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
 import { Menu } from "./pages/Menu/Menu";
-import { InfoPost } from "./pages/InfoTodo/InfoPost";
+import { InfoPost } from "./pages/InfoPost/InfoPost";
+import { setupStore } from "./redux/store";
+import { Provider } from "react-redux";
+
+const store = setupStore();
 
 const router = createBrowserRouter([
   {
@@ -30,6 +34,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );

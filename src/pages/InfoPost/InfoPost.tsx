@@ -1,5 +1,3 @@
-// import styles from "./InfoTodo.module.css";
-
 import { useNavigate, useParams } from "react-router-dom";
 
 export function InfoPost() {

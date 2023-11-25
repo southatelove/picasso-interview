@@ -1,32 +1,19 @@
-import { useEffect, useState } from "react";
-
-import axios from "axios";
-import { PREFIX } from "../../helpers/API";
-import { Posts } from "../../interfaces/posts.interface";
 import { MenuList } from "./MenuList/MenuList";
+import { postApi } from "../../redux/PostsApi";
 
 export function Menu() {
-  const [posts, setPosts] = useState<Posts[]>([]);
-
-  const getPosts = async () => {
-    try {
-      const { data } = await axios.get<Posts[]>(`${PREFIX}/posts`);
-      setPosts(data);
-    } catch (e) {
-      console.error(e);
-    }
-    return;
-  };
-
-  useEffect(() => {
-    getPosts();
-  }, []);
-  console.log(posts);
+  const {
+    data: posts,
+    error,
+    isLoading,
+  } = postApi.useFetchAllPostsQuery({ limit: 100, start: 0 });
 
   return (
     <>
       <div>
-        <MenuList posts={posts}></MenuList>
+        {isLoading && <h1>Идет загрузка...</h1>}
+        {error && <h1>Произошла Ошибка.... </h1>}
+        {posts && <MenuList posts={posts}></MenuList>}
       </div>
     </>
   );
