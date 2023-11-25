@@ -1,23 +1,26 @@
 import { MenuList } from "./MenuList/MenuList";
 import { postApi } from "../../redux/PostsApi";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState, setPage } from "../../redux/store";
 
 export const Menu = () => {
-  const [page, setPage] = useState(1);
-  const props = postApi.useGetPostsQuery({
+  const page = useSelector((state: RootState) => state.loadpage);
+
+  const dispatch = useDispatch<AppDispatch>();
+
+  const { data, isLoading, error } = postApi.useGetPostsQuery({
     limit: 10,
-    page,
+    page: page.page,
   });
-
-  const posts = props.data ?? [];
-
+  const posts = data ?? [];
   useEffect(() => {
     const onScroll = () => {
       const scrolledToBottom =
         window.innerHeight + window.scrollY + 1.5 >= document.body.offsetHeight;
 
-      if (scrolledToBottom && !props.isLoading) {
-        setPage(page + 1);
+      if (scrolledToBottom && !isLoading) {
+        dispatch(setPage());
       }
     };
 
@@ -26,13 +29,13 @@ export const Menu = () => {
     return function () {
       document.removeEventListener("scroll", onScroll);
     };
-  }, [page, props.isLoading]);
+  }, [page, isLoading, dispatch]);
 
   return (
     <>
       <div>
-        {props.isLoading && <h1>Идет загрузка...</h1>}
-        {props.error && <h1>Произошла Ошибка.... </h1>}
+        {isLoading && <h1>Идет загрузка...</h1>}
+        {error && <h1>Произошла Ошибка.... </h1>}
         {posts && <MenuList posts={posts}></MenuList>}
       </div>
     </>
