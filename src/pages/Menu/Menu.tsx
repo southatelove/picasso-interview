@@ -14,6 +14,7 @@ export const Menu = () => {
     page: page.page,
   });
   const posts = data ?? [];
+
   useEffect(() => {
     const onScroll = () => {
       const scrolledToBottom =

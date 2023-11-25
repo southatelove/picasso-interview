@@ -11,8 +11,8 @@ export const MenuList = ({ posts }: MenuListProps) => {
           id={p.id}
           userId={p.id}
           title={p.title}
-          description={p.body}
-        ></PostsCard>
+          body={p.body}
+        />
       ))}
     </div>
   );
