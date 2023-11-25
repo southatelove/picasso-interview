@@ -22,7 +22,7 @@ export const postApi = createApi({
         return currentArg?.page !== previousArg?.page;
       },
     }),
-    fetchPostById: builder.query<PostsCardProps | undefined, number>({
+    fetchPostById: builder.query<PostsCardProps, number>({
       query: (id: number = 1) => ({
         url: `/posts/${id}`,
       }),
