@@ -8,16 +8,16 @@ export function PostsCard(props: PostsCardProps) {
       <Link to={`/posts/${props.id}`} className={styles["link"]}>
         <div>
           <div className={styles["info"]}>
-            <p className={styles["text-posts"]}>Номер</p>&nbsp;
+            <p className={styles["text-posts"]}>№</p>&nbsp;
             <div className={styles["userId"]}>{props.userId}</div>
           </div>
           <div className={styles["info"]}>
-            <p className={styles["text-posts"]}>Заголовок</p>&nbsp;
-            <div className={styles["title"]}>{props.title}</div>
+            <p className={styles["text-posts"]}>Заголовок:</p>&nbsp;
+            <span className={styles["title"]}>{props.title}</span>
           </div>
           <div className={styles["info"]}>
-            <p className={styles["text-posts"]}>Описание</p>&nbsp;
-            <div className={styles["description"]}>{props.description}</div>
+            <p className={styles["text-posts"]}>Описание:</p>&nbsp;
+            <span className={styles["description"]}>{props.description}</span>
           </div>
         </div>
       </Link>

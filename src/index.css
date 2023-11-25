@@ -1,17 +1,10 @@
 :root {
-  background-image: linear-gradient(
-    to right,
-    #873090,
-    #bb2180,
-    #e12565,
-    #f64742,
-    #f8710d
-  );
+  background: #fdf5e6;
   --text-color: #000000;
   --white-color: #ffffff;
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   margin: 0;
 }
