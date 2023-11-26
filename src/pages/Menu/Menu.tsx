@@ -20,12 +20,6 @@ export const Menu = () => {
       const scrolledToBottom =
         window.innerHeight + window.scrollY > document.body.offsetHeight - 1;
 
-      console.log(
-        window.innerHeight,
-        window.scrollY,
-        document.body.offsetHeight
-      );
-
       if (scrolledToBottom && !isLoading) {
         dispatch(setPage());
       }
