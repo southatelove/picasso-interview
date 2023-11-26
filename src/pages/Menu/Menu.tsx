@@ -18,7 +18,12 @@ export const Menu = () => {
   useEffect(() => {
     const onScroll = () => {
       const scrolledToBottom =
-        window.innerHeight + window.scrollY + 1.5 >= document.body.offsetHeight;
+        window.innerHeight + window.scrollY > document.body.offsetHeight - 1.5;
+
+      console.log(
+        window.innerHeight + window.scrollY,
+        document.body.offsetHeight
+      );
 
       if (scrolledToBottom && !isLoading) {
         dispatch(setPage());
