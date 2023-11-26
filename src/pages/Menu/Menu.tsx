@@ -18,10 +18,11 @@ export const Menu = () => {
   useEffect(() => {
     const onScroll = () => {
       const scrolledToBottom =
-        window.innerHeight + window.scrollY > document.body.offsetHeight - 1.5;
+        window.innerHeight + window.scrollY > document.body.offsetHeight - 1;
 
       console.log(
-        window.innerHeight + window.scrollY,
+        window.innerHeight,
+        window.scrollY,
         document.body.offsetHeight
       );
 
